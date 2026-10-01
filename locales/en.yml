@@ -7798,6 +7798,27 @@ tools:
       label-output-type: "Output type:"
       title-argon2-hash: Argon2 Hash
       tag-generate: Generate
+      tag-hashing: Hashing...
+      title-hash: Hash
+      label-preset: "Preset:"
+      label-preset-authelia: Authelia (default)
+      label-preset-owasp: OWASP minimum
+      label-preset-custom: Custom
+      label-salt-length: "Salt length:"
+      error-missing-value: All parameters must be filled in
+      error-memory-too-low: "Memory must be at least {min} KiB (8 × parallelism)"
+      error-memory-too-high: "Memory must be at most {max} KiB (1 GiB)"
+      warning-memory-high: "Memory above {warnAbove} KiB (256 MiB) can make the browser slow or crash the tab"
+      error-salt-length: "Salt length must be between {min} and {max} bytes"
+      error-invalid-hex-salt: "Salt must be hexadecimal, with an even number of digits, and {min} to {max} bytes long"
+      title-verify: Verify password against hash
+      label-hash: "Hash:"
+      placeholder-password-to-verify: Password to verify
+      placeholder-hash-to-verify: $argon2id$v=19$m=65536,t=3,p=4$...
+      verify-result: Verification result
+      verify-match: Match
+      verify-no-match: No match
+      verify-invalid: Invalid argon2 hash
   binary-calculator:
     title: Binary Calculator
     description: Calculate bitwise/binary operations (AND, OR, XOR, NOT, shifts)

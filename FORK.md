@@ -69,3 +69,16 @@ every release and which this fork leaves untouched, to keep syncs conflict-free.
   - the sharevb workflows (Vercel, Pages, Docker Hub, CI, CodeQL, e2e) are disabled in the
     repository settings, so the fork publishes nowhere else
 - **Fork maintenance guide**: this document, covering upstream sync and workflow hygiene
+- **Argon2 verify card**: check a password against an argon2 PHC hash (`$argon2id$v=19$...`)
+  - variant and parameters are read from the hash; shows Match / No match / Invalid
+  - verified against hashes from `authelia crypto hash generate argon2`
+- **Argon2 presets**: "Authelia (default)" and "OWASP minimum"; editing a parameter shows "Custom"
+
+#### Changed
+
+- **Argon2 hasher defaults**: now match Authelia (argon2id, t=3, m=64 MiB, p=4, 32-byte key,
+  16-byte salt) instead of 512 KiB / p=1
+  - configurable salt length (8–64 bytes) for the random salt
+  - parameter validation: memory ≥ 8 × parallelism, at most 1 GiB, warning above 256 MiB; invalid
+    hex salt is rejected
+  - loading state on Generate; password fields are masked
