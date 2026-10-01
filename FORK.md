@@ -9,7 +9,7 @@ conflict-free:
 | File                                         | Purpose                                     |
 |----------------------------------------------|---------------------------------------------|
 | `.github/workflows/torreirow-docker-ghcr.yml` | builds and pushes `ghcr.io/torreirow/it-tools` |
-| `FORK.md`                                    | this document                               |
+| `FORK.md`                                    | this document, incl. fork changelog         |
 
 ## Container image
 
@@ -53,3 +53,19 @@ git pull origin chore/all-my-stuffs
 ```
 
 The sync is a push to the default branch, so it also triggers a new image build.
+
+## Changelog
+
+Fork-specific changes only. Upstream changes are in `CHANGELOG.md`, which sharevb generates on
+every release and which this fork leaves untouched, to keep syncs conflict-free.
+
+### NEXT VERSION
+
+#### Added
+
+- **GHCR container image**: every push to `chore/all-my-stuffs` publishes
+  `ghcr.io/torreirow/it-tools` (`linux/amd64`), publicly pullable
+  - tags `latest` and `sha-<short-sha>`, manual builds via `workflow_dispatch`
+  - the sharevb workflows (Vercel, Pages, Docker Hub, CI, CodeQL, e2e) are disabled in the
+    repository settings, so the fork publishes nowhere else
+- **Fork maintenance guide**: this document, covering upstream sync and workflow hygiene
